@@ -7,7 +7,17 @@ require_relative 'entry'
       @entries = []
     end
 
-  def add_entry(name, phone_number, email)
+    def remove_entry(name, phone, email)
+      deleteE = 0
+      entries.each do |entry|
+        if name == entry.name && phone == entry.phone_number && email == entry.email
+         deleteE = entry
+    end
+  end
+   entries.delete(deleteE)
+  end
+
+    def add_entry(name, phone_number, email)
     # #9
     index = 0
     entries.each do |entry|
