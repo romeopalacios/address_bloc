@@ -24,6 +24,15 @@ RSpec.describe AddressBook do
      expect(entry.email).to eq expected_email
    end
 
+   context "#detonate_entries" do
+     it "Deletes all entries" do
+     book.add_entry("Romeo Palacios","323.516.2497", "romeopalacios@ymail.com")
+
+      book.detonate_entries
+      expect(book.entries.size).to eq 0
+    end
+  end
+
    context "#remove_entry" do
      it "removes an entry using name, phone_number and email address" do
        book.add_entry("Romeo Palacios","323.516.2497", "romeopalacios@ymail.com")

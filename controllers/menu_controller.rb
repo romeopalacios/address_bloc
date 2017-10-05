@@ -15,8 +15,9 @@ class MenuController
     puts "2 - View Entry Number"
     puts "3 - Create an entry"
     puts "4-  Search for an entry"
-    puts "5 - Import entries from a CSV"
-    puts "6 - Exit"
+    puts "5-  Delete all entries"
+    puts "6 - Import entries from a CSV"
+    puts "7 - Exit"
     print "Enter your selection: "
 
     # #3
@@ -42,9 +43,14 @@ class MenuController
          main_menu
        when 5
          system "clear"
-         read_csv
+         @address_book.detonate_entries
+         puts "Entries deleted"
          main_menu
        when 6
+         system "clear"
+         read_csv
+         main_menu
+       when 7
          puts "Good-bye!"
          # #8
          exit(0)
@@ -190,6 +196,7 @@ end
          search_submenu(entry)
      end
    end
+
 
    def entry_submenu(entry)
      # #16
